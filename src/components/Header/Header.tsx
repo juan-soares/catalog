@@ -1,14 +1,13 @@
 export function Header(){
-   const menuItems = ["animes", "jogos eletrônicos", "jogos de mesa", "séries", "filmes", "leitura", "músicas"]
-   
+    const menuItems = ["animes", "jogos eletrônicos", "jogos de mesa", "leitura","músicas","séries", "filmes"];
+    
     return(
         <header>
-            <img src="" alt="logo" />
- <input type="search" placeholder="Pesquisar..."/>
+            <img src="" alt="logo"/>
+            <input type="search" placeholder="Pesquisar..."/>
             <ul>
-                {menuItems.sort().map(menuItem => <li key={menuItem}>{menuItem}</li>)}
+                {menuItems.sort().map(menuItems => <li key={menuItems}>{menuItems}</li>)}
             </ul>
-           
         </header>
     )
 }
