@@ -1,0 +1,35 @@
+{
+    "categories":[
+        {
+        "title": "animes",
+        "titleBR": "animes"
+    },
+    {
+        "title": "series",
+        "titleBR": "séries"
+    },
+    {
+        "title":"cartoons",
+        "titleBR":"desenhos animados"
+    },
+    {
+        "title":"movies",
+        "titleBR":"filmes"
+    },
+    {
+        "title":"reading",
+        "titleBR":"leitura"
+    },
+    {
+        "title":"music",
+        "titleBR":"músicas"
+    },
+    {
+        "title":"video-games",
+        "titleBR":"jogos eletrônicos"
+    },
+    {
+        "title":"board-games",
+        "titleBR":"jogos de mesa"
+    }]
+}
