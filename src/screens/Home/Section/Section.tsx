@@ -25,6 +25,9 @@ export function Section({ title, titleBR }: IProps) {
       <h2>{titleBR}</h2>
       <span>left</span>
       <ul>
+        <li>
+          <button>+</button>
+        </li>
         {sectionItemList.length ? (
           sectionItemList.map(({ title, release, cover }) => (
             <li key={title}>
