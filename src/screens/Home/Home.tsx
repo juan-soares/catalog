@@ -1,7 +1,10 @@
 import { useEffect, useState } from "react";
 import { Section } from "./Section";
+import { ModalsNew } from "../../components/Modals/New";
 
 export function ScreenHome() {
+  const [isModalDisplayed, setIsModalDisplayed] = useState(false);
+  const [selectedCategory, setSelectedCategory] = useState("");
   const [categoryList, setCategoryList] = useState([]);
 
   async function getData() {
@@ -18,9 +21,20 @@ export function ScreenHome() {
 
   return (
     <div>
+      {selectedCategory && (
+        <ModalsNew
+          selectedCategory={selectedCategory}
+          setSelectedCategory={setSelectedCategory}
+        />
+      )}
+
       <h1>Home Page</h1>
       {categoryList.map(({ title, titleBR }) => (
-        <Section title={title} titleBR={titleBR} />
+        <Section
+          title={title}
+          titleBR={titleBR}
+          setSelectedCategory={setSelectedCategory}
+        />
       ))}
     </div>
   );

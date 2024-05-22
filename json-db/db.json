@@ -40,5 +40,61 @@
       "release": 2024,
       "cover": "https://developers.google.com/static/maps/documentation/streetview/images/error-image-generic.png"
     }
+  ],
+  "series": [
+    {
+      "title": "LRT",
+      "titleBR": "LRT",
+      "release": 2023,
+      "cover": "https://developers.google.com/static/maps/documentation/streetview/images/error-image-generic.png"
+    }
+  ],
+  "movies": [
+    {
+      "title": "Naruto - The Movie",
+      "titleBR": "Naruto - O Filme",
+      "release": 2024,
+      "cover": "https://developers.google.com/static/maps/documentation/streetview/images/error-image-generic.png"
+    }
+  ],
+  "cartoons": [
+    {
+      "title": "Bayblade",
+      "titleBR": "Bayblade",
+      "release": 2013,
+      "cover": "https://developers.google.com/static/maps/documentation/streetview/images/error-image-generic.png"
+    }
+  ],
+  "board-games": [
+    {
+      "title": "Arena",
+      "titleBR": "Arena",
+      "release": 2019,
+      "cover": "https://developers.google.com/static/maps/documentation/streetview/images/error-image-generic.png"
+    }
+  ],
+  "video-games": [
+    {
+      "title": "Naruto - Game",
+      "titleBR": "Naruto - Game",
+      "release": 2024,
+      "cover": "https://developers.google.com/static/maps/documentation/streetview/images/error-image-generic.png"
+    }
+  ],
+  "reading": [
+    {
+      "title": "Eragon",
+      "titleBR": "Eragon",
+      "release": 2015,
+      "cover": "https://developers.google.com/static/maps/documentation/streetview/images/error-image-generic.png"
+    }
+  ],
+  "music": [
+    {
+      "title": "Nirvana",
+      "titleBR": "Nirvana",
+      "release": 2024,
+      "cover": "https://developers.google.com/static/maps/documentation/streetview/images/error-image-generic.png"
+    }
   ]
 }

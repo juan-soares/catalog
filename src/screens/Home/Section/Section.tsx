@@ -3,9 +3,10 @@ import { useEffect, useState } from "react";
 interface IProps {
   title: string;
   titleBR: string;
+  setSelectedCategory: (arg: string) => void;
 }
 
-export function Section({ title, titleBR }: IProps) {
+export function Section({ title, titleBR, setSelectedCategory }: IProps) {
   const [sectionItemList, setSectionItemList] = useState([]);
 
   async function getData() {
@@ -26,7 +27,7 @@ export function Section({ title, titleBR }: IProps) {
       <span>left</span>
       <ul>
         <li>
-          <button>+</button>
+          <button onClick={() => setSelectedCategory(title)}>+</button>
         </li>
         {sectionItemList.length ? (
           sectionItemList.map(({ title, release, cover }) => (
