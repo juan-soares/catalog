@@ -1,35 +1,44 @@
 {
-    "categories":[
-        {
-        "title": "animes",
-        "titleBR": "animes"
+  "categories": [
+    {
+      "title": "animes",
+      "titleBR": "animes"
     },
     {
-        "title": "series",
-        "titleBR": "séries"
+      "title": "series",
+      "titleBR": "séries"
     },
     {
-        "title":"cartoons",
-        "titleBR":"desenhos animados"
+      "title": "cartoons",
+      "titleBR": "desenhos animados"
     },
     {
-        "title":"movies",
-        "titleBR":"filmes"
+      "title": "movies",
+      "titleBR": "filmes"
     },
     {
-        "title":"reading",
-        "titleBR":"leitura"
+      "title": "reading",
+      "titleBR": "leitura"
     },
     {
-        "title":"music",
-        "titleBR":"músicas"
+      "title": "music",
+      "titleBR": "músicas"
     },
     {
-        "title":"video-games",
-        "titleBR":"jogos eletrônicos"
+      "title": "video-games",
+      "titleBR": "jogos eletrônicos"
     },
     {
-        "title":"board-games",
-        "titleBR":"jogos de mesa"
-    }]
+      "title": "board-games",
+      "titleBR": "jogos de mesa"
+    }
+  ],
+  "animes": [
+    {
+      "title": "Naruto",
+      "titleBR": "Naruto",
+      "release": 2024,
+      "cover": "https://developers.google.com/static/maps/documentation/streetview/images/error-image-generic.png"
+    }
+  ]
 }
