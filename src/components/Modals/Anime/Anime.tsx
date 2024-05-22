@@ -1,19 +1,42 @@
+import { useState } from "react";
+
 export function NewAnime() {
+  const [newAnime, setNewAnime] = useState({
+    title: "",
+    titleTranslated: "",
+    cover: "",
+    release: "",
+  });
+
+  function handleChange({ target: { id, value } }) {
+    setNewAnime({ ...newAnime, [id]: value });
+    console.log(newAnime);
+  }
+
   return (
     <div>
       <h1>Novo An.</h1>
       <form>
-        <label>Título: </label>
-        <input type="text" required />
+        <label htmlFor="title">Título: </label>
+        <input
+          id="title"
+          type="text"
+          required
+          onChange={(e) => handleChange(e)}
+        />
 
-        <label>Título Traduzido: </label>
-        <input type="text" />
+        <label htmlFor="titleTranslated">Título Traduzido: </label>
+        <input
+          id="titleTranslated"
+          type="text"
+          onChange={(e) => handleChange(e)}
+        />
 
         <label>Capa: </label>
-        <input type="file" />
+        <input id="cover" type="file" onChange={(e) => handleChange(e)} />
 
         <label>Lançamento: </label>
-        <input type="date" />
+        <input id="release" type="date" onChange={(e) => handleChange(e)} />
       </form>
     </div>
   );
