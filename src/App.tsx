@@ -1,10 +1,14 @@
+import { Footer } from "./components/Footer"
+import { Header } from "./components/Header"
 import ScreenHome from "./screens/Home/Home"
 
 function App() {
 
   return (
     <>
-    <ScreenHome/>
+      <Header />
+      <ScreenHome />
+      <Footer />
     </>
   )
 }
