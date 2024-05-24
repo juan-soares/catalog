@@ -6,6 +6,13 @@ interface IProps {
   setSelectedCategory: (arg: string) => void;
 }
 
+interface ISectionItem {
+  id: string;
+  title: string;
+  cover: string;
+  release: string;
+}
+
 export function Section({ title, titleBR, setSelectedCategory }: IProps) {
   const [sectionItemList, setSectionItemList] = useState([]);
 
@@ -30,10 +37,10 @@ export function Section({ title, titleBR, setSelectedCategory }: IProps) {
           <button onClick={() => setSelectedCategory(title)}>+</button>
         </li>
         {sectionItemList.length ? (
-          sectionItemList.map(({ id, title, release, cover }) => (
+          sectionItemList.map(({ id, title, release, cover }: ISectionItem) => (
             <li key={id}>
               <img src={cover} alt={cover} />
-              <h3>{`${title} (${release})`}</h3>
+              <h3>{`${title} (${release.slice(0, 4)})`}</h3>
             </li>
           ))
         ) : (

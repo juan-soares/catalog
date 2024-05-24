@@ -3,7 +3,6 @@ import { Section } from "./Section";
 import { ModalsNew } from "../../components/Modals/New";
 
 export function ScreenHome() {
-  const [isModalDisplayed, setIsModalDisplayed] = useState(false);
   const [selectedCategory, setSelectedCategory] = useState("");
   const [categoryList, setCategoryList] = useState([]);
 

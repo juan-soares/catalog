@@ -41,7 +41,22 @@
       "id": "63e8"
     }
   ],
-  "animes": [],
+  "animes": [
+    {
+      "id": "88af",
+      "title": "Naruto",
+      "titleTranslated": "",
+      "cover": "cover.png",
+      "release": "2002-10-03"
+    },
+    {
+      "id": "143b",
+      "title": "Pokemon",
+      "titleTranslated": "Pokémon",
+      "cover": "cover.png",
+      "release": "2024-05-21"
+    }
+  ],
   "cartoons:": [],
   "movies": [],
   "series:": [],
