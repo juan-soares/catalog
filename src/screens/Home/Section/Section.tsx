@@ -30,9 +30,9 @@ export function Section({ title, titleBR, setSelectedCategory }: IProps) {
           <button onClick={() => setSelectedCategory(title)}>+</button>
         </li>
         {sectionItemList.length ? (
-          sectionItemList.map(({ title, release, cover }) => (
-            <li key={title}>
-              <img src={cover} alt="cover" />
+          sectionItemList.map(({ id, title, release, cover }) => (
+            <li key={id}>
+              <img src={cover} alt={cover} />
               <h3>{`${title} (${release})`}</h3>
             </li>
           ))

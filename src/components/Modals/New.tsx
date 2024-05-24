@@ -8,8 +8,10 @@ interface IProps {
 export function ModalsNew({ selectedCategory, setSelectedCategory }: IProps) {
   return (
     <div>
-      {selectedCategory === "animes" && <NewAnime />}
-      <button onClick={() => setSelectedCategory("")}>CANCELAR</button>
+      <h1>Novo </h1>
+      {selectedCategory === "animes" && (
+        <NewAnime setSelectedCategory={setSelectedCategory} />
+      )}
     </div>
   );
 }

@@ -31,6 +31,7 @@ export function ScreenHome() {
       <h1>Home Page</h1>
       {categoryList.map(({ title, titleBR }) => (
         <Section
+          key={title}
           title={title}
           titleBR={titleBR}
           setSelectedCategory={setSelectedCategory}
