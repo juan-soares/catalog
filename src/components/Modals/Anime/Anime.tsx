@@ -8,8 +8,8 @@ export function NewAnime() {
     release: "",
   });
 
-  function handleChange({ target: { id, value } }) {
-    setNewAnime({ ...newAnime, [id]: value });
+  function handleChange({ target: { id, value, files } }) {
+    setNewAnime({ ...newAnime, [id]: files ? files[0].name : value });
     console.log(newAnime);
   }
 
