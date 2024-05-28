@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 
 interface IMenuListItem {
     titleBR: string,
@@ -24,7 +25,7 @@ export function Header(){
             <img src="" alt="logo"/>
             <input type="search" placeholder="Pesquisar..."/>
             <ul>
-                {menuListItems.map(({title, titleBR}) => <li key={title}>{titleBR}</li>)}
+                {menuListItems.map(({title, titleBR}) => <li key={title}><Link to={`/${title}`}>{titleBR}</Link></li>)}
             </ul>
         </header>
     )
