@@ -2,7 +2,7 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { ScreenDefault } from "../screens/Default";
 import { ScreenError } from "../screens/Error";
 import { ScreenHome } from "../screens/Home";
-import { ScreenCategoryTitle } from "../screens/Category";
+import { ScreenCategory } from "../screens/Category";
 
 const router = createBrowserRouter([
   {
@@ -15,8 +15,8 @@ const router = createBrowserRouter([
         element: <ScreenHome />
       },
       {
-        path: "/:category/:title",
-        element: <ScreenCategoryTitle />
+        path: "/:category",
+        element: <ScreenCategory />
       }
     ]
   }

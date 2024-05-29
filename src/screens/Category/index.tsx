@@ -1,3 +1,1 @@
-import { CategoryTitle } from "./Title";
-
-export  {CategoryTitle as ScreenCategoryTitle}
+export * from "./Category";

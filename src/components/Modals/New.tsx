@@ -8,7 +8,6 @@ interface IProps {
 export function ModalsNew({ selectedCategory, setSelectedCategory }: IProps) {
   return (
     <div>
-      <h1>Novo </h1>
       {selectedCategory === "animes" && (
         <NewAnime setSelectedCategory={setSelectedCategory} />
       )}
