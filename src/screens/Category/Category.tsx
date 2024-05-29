@@ -21,11 +21,11 @@ export function ScreenCategory(){
         <div>
             <h1>{categoryTitle}</h1>
             <aside>
-                <button onClick={()=>setSelectedCategory(category ? category : "")}>+</button>
+                <input type="search" placeholder="Pesquisar..."/>
+                <button onClick={()=>setSelectedCategory(category ? category : "")}>Novo</button>
             </aside>
             <main>
                 <ModalsNew selectedCategory={selectedCategory} setSelectedCategory={setSelectedCategory}/>
-                <button onClick={() => setSelectedCategory("")}>X</button>
                 <ul></ul>
             </main>
         </div>
