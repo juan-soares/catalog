@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 
 interface IProps {
   title: string;
@@ -10,6 +11,7 @@ interface ISectionItem {
   id: string;
   title: string;
   cover: string;
+  category: string;
   release: string;
 }
 
@@ -37,12 +39,16 @@ export function Section({ title, titleBR, setSelectedCategory }: IProps) {
           <button onClick={() => setSelectedCategory(title)}>+</button>
         </li>
         {sectionItemList.length ? (
-          sectionItemList.map(({ id, title, release, cover }: ISectionItem) => (
-            <li key={id}>
-              <img src={cover} alt={cover} />
-              <h3>{`${title} (${release.slice(0, 4)})`}</h3>
-            </li>
-          ))
+          sectionItemList.map(
+            ({ id, category, title, release, cover }: ISectionItem) => (
+              <li key={id}>
+                <Link to={`/${category}/${title}`}>
+                  <img src={cover} alt={cover} />
+                  <h3>{`${title} (${release.slice(0, 4)})`}</h3>
+                </Link>
+              </li>
+            )
+          )
         ) : (
           <li>Sem itens na lista.</li>
         )}

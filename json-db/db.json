@@ -1,4 +1,12 @@
 {
+  "properties": [
+    {
+      "title": "language",
+      "titleTranslated": "idiomas",
+      "category": "animes",
+      "id": "abrdr"
+    }
+  ],
   "categories": [
     {
       "title": "animes",
@@ -45,16 +53,25 @@
     {
       "id": "88af",
       "title": "Naruto",
-      "titleTranslated": "",
+      "titleTranslated": "Naruto",
       "cover": "cover.png",
-      "release": "2002-10-03"
+      "release": "2002-10-03",
+      "category": "animes"
     },
     {
       "id": "143b",
       "title": "Pokemon",
       "titleTranslated": "Pokémon",
       "cover": "cover.png",
-      "release": "2024-05-21"
+      "release": "2024-05-21",
+      "category": "animes"
+    },
+    {
+      "id": "6810",
+      "title": "Bayblade",
+      "titleTranslated": "Bayblade",
+      "cover": "vlc-3.0.18-win32.exe",
+      "release": "2024-05-05"
     }
   ],
   "cartoons": [],
