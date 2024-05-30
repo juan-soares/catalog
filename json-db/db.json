@@ -1,10 +1,34 @@
 {
   "properties": [
     {
-      "title": "language",
+      "title": "subcategories",
+      "titleTranslated": "subcategorias",
+      "category": "animes",
+      "id": "abraxfdr"
+    },
+    {
+      "title": "languages",
       "titleTranslated": "idiomas",
       "category": "animes",
-      "id": "abrdr"
+      "id": "abrdewewr"
+    },
+    {
+      "title": "resolutions",
+      "titleTranslated": "resoluções",
+      "category": "animes",
+      "id": "abrdraaac"
+    },
+    {
+      "title": "aquired",
+      "titleTranslated": "adquirido",
+      "category": "animes",
+      "id": "abrdraccc"
+    },
+    {
+      "title": "finished",
+      "titleTranslated": "finalizado",
+      "category": "animes",
+      "id": "abrdafaccc"
     }
   ],
   "categories": [

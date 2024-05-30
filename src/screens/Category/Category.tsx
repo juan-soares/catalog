@@ -59,7 +59,7 @@ export function ScreenCategory() {
               <ul>
                 <li>
                   <input type="checkbox" />
-                  <label>PT-BR</label>
+                  <label></label>
                 </li>
               </ul>
             </div>
