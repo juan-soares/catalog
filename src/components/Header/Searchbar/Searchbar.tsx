@@ -1,7 +1,15 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
+
+interface ITitle {
+  category: string;
+  title: string;
+  release: string;
+}
 
 export function Searchbar() {
   const [searchedWord, setSearchedWord] = useState("");
+  const [searchResults, setSearchResults] = useState<ITitle[]>([]);
 
   return (
     <div>
@@ -10,9 +18,20 @@ export function Searchbar() {
         placeholder="Pesquisar..."
         onChange={({ target: { value } }) => setSearchedWord(value)}
       />
-      {searchedWord && (
+      {searchedWord && !searchResults.length && (
         <ul>
-          <li>{searchedWord}</li>
+          <li>Nada encontrado.</li>
+        </ul>
+      )}
+      {searchedWord && searchResults.length && (
+        <ul>
+          {searchResults.map(({ category, title, release }) => (
+            <li key={title}>
+              <Link to={`/${category}/${title}`}>
+                {`${title} (${release.slice(0, 4)})`}
+              </Link>
+            </li>
+          ))}
         </ul>
       )}
     </div>
