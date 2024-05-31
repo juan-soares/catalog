@@ -1,6 +1,13 @@
 import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import { ModalsNew } from "../../components/Modals/New";
+import { PropertyValueList } from "../../components/PropertyValueList";
+
+interface ICategory {
+  title: string;
+  titleBR: string;
+  properties: string[];
+}
 
 interface IListItem {
   title: string;
@@ -11,84 +18,77 @@ interface IListItem {
 
 export function ScreenCategory() {
   const { category } = useParams();
-  const [categoryTitle, setCategoryTitle] = useState("");
-  const [selectedCategory, setSelectedCategory] = useState("");
-  const [propretyList, setPropertyList] = useState([]);
-  const [listItem, setListItem] = useState([]);
+  const [selectedCategory, setSelectedCategory] = useState<ICategory>({
+    title: "",
+    titleBR: "",
+    properties: [],
+  });
+  const [newValue, setNewValue] = useState({ property: "", value: "" });
+  const [propertyValues, setPropertyValues] = useState([]);
 
   async function getData() {
     const res = await fetch(
       `https://catalog-1kpk--3001--71ef666c.local-credentialless.webcontainer.io/categories?title=${category}`
     );
     const data = await res.json();
-    setCategoryTitle(data[0].titleBR);
-
-    const listRes = await fetch(
-      `https://catalog-1kpk--3001--71ef666c.local-credentialless.webcontainer.io/${category}`
-    );
-    const listData = await listRes.json();
-    setListItem(listData);
-
-    const propertyRes = await fetch(
-      `https://catalog-1kpk--3001--71ef666c.local-credentialless.webcontainer.io/properties?category=${category}`
-    );
-
-    const propertyData = await propertyRes.json();
-    setPropertyList(propertyData);
+    setSelectedCategory(data[0]);
   }
 
   useEffect(() => {
     getData();
-  }, [category, selectedCategory]);
+  }, [category]);
+
+  async function handleForm(e: React.FormEvent<HTMLFormElement>) {
+    e.preventDefault();
+    const res = await fetch(
+      "https://catalog-1kpk--3001--12d46890.local-credentialless.webcontainer.io/properties",
+      {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ ...newValue, category: category }),
+      }
+    );
+
+    const data = await res.json();
+
+    console.log(data);
+
+    window.alert("ok");
+  }
 
   return (
     <div>
-      <h1>{categoryTitle}</h1>
+      <h1>{selectedCategory.titleBR}</h1>
 
       <aside>
         <input type="search" placeholder="Pesquisar..." />
-
-        <button onClick={() => setSelectedCategory(category ? category : "")}>
-          Novo
-        </button>
-
-        <div>
-          {propretyList.map(({ title, titleTranslated }) => (
-            <div key={title}>
-              <h2>{titleTranslated}</h2>
-              <ul>
-                <li>
-                  <input type="checkbox" />
-                  <label></label>
-                </li>
-              </ul>
-            </div>
-          ))}
-        </div>
-      </aside>
-
-      <main>
-        <ModalsNew
-          selectedCategory={selectedCategory}
-          setSelectedCategory={setSelectedCategory}
-        />
-
-        <ul>
-          {!listItem.length && <li>Sem itens na lista.</li>}
-          {listItem.map(
-            ({ title, titleTranslated, cover, release }: IListItem) => (
-              <li key={titleTranslated}>
-                <Link to={`/${category}/${title}`}>
-                  <img src={cover} alt="capa" />
-                  <p>
-                    <h2>{`${titleTranslated} ${release.slice(0, 4)}`}</h2>
-                  </p>
-                </Link>
+        <button>Novo</button>
+        {selectedCategory.properties?.map((property) => (
+          <div key={property}>
+            <h2>{property}</h2>
+            <ul>
+              <li>
+                <button>+</button>
+                <form onSubmit={(e) => handleForm(e)}>
+                  <input
+                    type="text"
+                    required
+                    onChange={({ target: { value } }) =>
+                      setNewValue({ property: property, value: value })
+                    }
+                  />
+                  <button>X</button>
+                  <button>OK</button>
+                </form>
+                <PropertyValueList
+                  category={selectedCategory.title}
+                  property={property}
+                />
               </li>
-            )
-          )}
-        </ul>
-      </main>
+            </ul>
+          </div>
+        ))}
+      </aside>
     </div>
   );
 }

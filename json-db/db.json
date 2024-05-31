@@ -1,40 +1,15 @@
 {
-  "properties": [
-    {
-      "title": "subcategories",
-      "titleTranslated": "subcategorias",
-      "category": "animes",
-      "id": "abraxfdr"
-    },
-    {
-      "title": "languages",
-      "titleTranslated": "idiomas",
-      "category": "animes",
-      "id": "abrdewewr"
-    },
-    {
-      "title": "resolutions",
-      "titleTranslated": "resoluções",
-      "category": "animes",
-      "id": "abrdraaac"
-    },
-    {
-      "title": "aquired",
-      "titleTranslated": "adquirido",
-      "category": "animes",
-      "id": "abrdraccc"
-    },
-    {
-      "title": "finished",
-      "titleTranslated": "finalizado",
-      "category": "animes",
-      "id": "abrdafaccc"
-    }
-  ],
   "categories": [
     {
       "title": "animes",
       "titleBR": "animes",
+      "properties": [
+        "subcategorias",
+        "idiomas",
+        "resoluções",
+        "adquirido",
+        "finalizado"
+      ],
       "id": "eaae"
     },
     {
@@ -71,6 +46,24 @@
       "title": "board-games",
       "titleBR": "jogos de mesa",
       "id": "63e8"
+    }
+  ],
+  "properties": [
+    {
+      "value": "OVA",
+      "category": "animes",
+      "property": "subcategorias"
+    },
+    {
+      "property": "subcategorias",
+      "value": "teste",
+      "category": "animes"
+    },
+    {
+      "id": "655d",
+      "property": "idiomas",
+      "value": "teste2",
+      "category": "animes"
     }
   ],
   "animes": [
