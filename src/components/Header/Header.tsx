@@ -1,45 +1,17 @@
-import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-
-interface IMenuListItem {
-  titleBR: string;
-  title: string;
-}
+import { Searchbar } from "./Searchbar";
+import { Login } from "./Login";
+import { Navbar } from "./Navbar";
 
 export function Header() {
-  const [menuListItems, setMenuListItems] = useState<IMenuListItem[]>([]);
-
-  async function getData() {
-    const res = await fetch(
-      "https://catalog-1kpk--3001--14f85cda.local-credentialless.webcontainer.io/categories"
-    );
-    const data = await res.json();
-    setMenuListItems(
-      data
-        ? data.sort((a: IMenuListItem, b: IMenuListItem) =>
-            a.titleBR == b.titleBR ? 0 : a.titleBR > b.titleBR ? 1 : -1
-          )
-        : []
-    );
-  }
-
-  useEffect(() => {
-    getData();
-  }, []);
-
   return (
     <header>
       <Link to="/">
         <img src="" alt="logo" />
       </Link>
-      <input type="search" placeholder="Pesquisar..." />
-      <ul>
-        {menuListItems.map(({ title, titleBR }) => (
-          <li key={title}>
-            <Link to={`/${title}`}>{titleBR}</Link>
-          </li>
-        ))}
-      </ul>
+      <Searchbar />
+      <Login />
+      <Navbar />
     </header>
   );
 }
