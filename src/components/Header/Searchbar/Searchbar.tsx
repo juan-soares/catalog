@@ -18,12 +18,11 @@ export function Searchbar() {
         placeholder="Pesquisar..."
         onChange={({ target: { value } }) => setSearchedWord(value)}
       />
-      {searchedWord && !searchResults.length && (
+      {searchedWord && !searchResults.length ? (
         <ul>
           <li>Nada encontrado.</li>
         </ul>
-      )}
-      {searchedWord && searchResults.length && (
+      ) : (
         <ul>
           {searchResults.map(({ category, title, release }) => (
             <li key={title}>
