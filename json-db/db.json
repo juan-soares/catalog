@@ -1,4 +1,11 @@
 {
-  "users": [],
+  "users": [
+    {
+      "email": "a@a",
+      "password": "123",
+      "nickname": "adm",
+      "avatar": ""
+    }
+  ],
   "categories": [{ "title": "animes" }]
 }

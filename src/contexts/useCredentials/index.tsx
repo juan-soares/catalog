@@ -20,9 +20,9 @@ export function useCredentials() {
 
     const data = await res.json();
 
-    setUser(data);
-
-    console.log(data);
+    data.length
+      ? setUser({ nickname: data.nickname, avatar: data.avatar })
+      : null;
   }
 
   return { user, login };

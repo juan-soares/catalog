@@ -12,6 +12,7 @@ export function Login() {
     email: "",
     password: "",
   });
+  const [unauthorizedMessage, setUnauthorizedMessage] = useState("");
 
   const { login } = useCredentials();
 
@@ -45,7 +46,7 @@ export function Login() {
             setCredentials({ ...credentials, [id]: value })
           }
         />
-
+        {unauthorizedMessage}
         <button>Login</button>
         <Link to="/">Voltar</Link>
       </form>
