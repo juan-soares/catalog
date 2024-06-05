@@ -1,8 +1,8 @@
 import { Link } from "react-router-dom";
-import { useCredentials } from "../../../contexts/useCredentials";
+import {useLogin } from "../../../contexts/useLogin";
 
 export function Login() {
-  const { user } = useCredentials();
+  const { user } = useLogin();
 
   return (
     <div>

@@ -1,6 +1,6 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
-import { useCredentials } from "../../../contexts/useCredentials";
+import { Link, redirect, useNavigate } from "react-router-dom";
+import { useLogin } from "../../../contexts/useLogin";
 
 interface ICredentials {
   email: string;
@@ -12,14 +12,13 @@ export function Login() {
     email: "",
     password: "",
   });
-  const [unauthorizedMessage, setUnauthorizedMessage] = useState("");
-
-  const { login } = useCredentials();
+  
+  const { login, isLogged } = useLogin();
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    login(credentials);
-  };
+     login(credentials);
+   };
 
   return (
     <div>
@@ -46,7 +45,7 @@ export function Login() {
             setCredentials({ ...credentials, [id]: value })
           }
         />
-        {unauthorizedMessage}
+        {!isLogged && <p>Usuário ou senha inválidos.</p>}
         <button>Login</button>
         <Link to="/">Voltar</Link>
       </form>

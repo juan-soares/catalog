@@ -14,7 +14,7 @@ export function Navbar() {
       <ul>
         <li>
           {categoryList.map(({ title }) => (
-            <Link to={`/${title}`}>{title}</Link>
+            <Link key={title} to={`/${title}`}>{title}</Link>
           ))}
         </li>
       </ul>
