@@ -13,7 +13,7 @@ export function Login() {
     password: "",
   });
   
-  const { login, isLogged } = useLogin();
+  const { login, isUnauthorized } = useLogin();
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -45,7 +45,7 @@ export function Login() {
             setCredentials({ ...credentials, [id]: value })
           }
         />
-        {!isLogged && <p>Usuário ou senha inválidos.</p>}
+        {isUnauthorized && <p>Usuário ou senha inválidos.</p>}
         <button>Login</button>
         <Link to="/">Voltar</Link>
       </form>

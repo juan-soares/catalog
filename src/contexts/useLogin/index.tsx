@@ -13,8 +13,8 @@ interface IUser {
 
 export function useLogin() {
   const [user, setUser] = useState<IUser>();
-  const [isLogged, setIsLogged] = useState(false);
-
+  const [isUnauthorized, setIsUnauthorized] = useState(false);
+  const navigate = useNavigate();
 
   async function login({ email, password }: ICredentials) {
     const res = await fetch(
@@ -22,12 +22,16 @@ export function useLogin() {
     );
 
     const data = await res.json();
-    
-    if(!data.length) return;
-    
-    setUser({nickname: data[0].nickname, avatar: data[0].avatar})    
-    
+
+    if (!data.length) {
+      setIsUnauthorized(true);
+      return;
+    }
+
+    setUser({ nickname: data[0].nickname, avatar: data[0].avatar });
+
+    navigate("/");
   }
 
-  return { isLogged, user, login };
+  return { isUnauthorized, user, login };
 }
