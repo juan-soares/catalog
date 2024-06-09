@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Link, redirect, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { useLogin } from "../../../contexts/useLogin";
 
 interface ICredentials {
@@ -12,13 +12,13 @@ export function Login() {
     email: "",
     password: "",
   });
-  
+
   const { login, isUnauthorized } = useLogin();
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-     login(credentials);
-   };
+    login(credentials);
+  };
 
   return (
     <div>
