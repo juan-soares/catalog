@@ -1,10 +1,22 @@
 import { createContext, useState } from "react";
-import { IPropsWithChildren } from "../../interfaces";
+import { IPropsWithChildren, IUser } from "../../interfaces";
 
-export const UserContext = createContext("oi");
+interface IUserContext {
+  user: null | IUser;
+  setUser: React.Dispatch<React.SetStateAction<IUser | null>>;
+}
+
+export const UserContext = createContext<IUserContext>({
+  user: null,
+  setUser: () => null,
+});
 
 export function UserContextProvider({ children }: IPropsWithChildren) {
-  const [usert, setUser] = useState("oii");
+  const [user, setUser] = useState<IUser | null>(null);
 
-  return <UserContext.Provider value={usert}>{children}</UserContext.Provider>;
+  return (
+    <UserContext.Provider value={{ user, setUser }}>
+      {children}
+    </UserContext.Provider>
+  );
 }

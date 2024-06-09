@@ -1,16 +1,14 @@
 import { Footer } from "../../Footer";
 import { Outlet } from "react-router-dom";
 import { Header } from "../../Header";
-import { createContext } from "react";
-
-export const UserContext = createContext("oii");
+import { UserContextProvider } from "../../../contexts";
 
 export function Default() {
   return (
-    <UserContext.Provider value="oii">
+    <UserContextProvider>
       <Header />
       <Outlet />
       <Footer />
-    </UserContext.Provider>
+    </UserContextProvider>
   );
 }
