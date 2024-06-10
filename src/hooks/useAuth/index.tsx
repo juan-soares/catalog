@@ -1,4 +1,5 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
+import { UserContext } from "../../contexts/user";
 import { useNavigate } from "react-router-dom";
 
 interface ICredentials {
@@ -6,13 +7,8 @@ interface ICredentials {
   password: string;
 }
 
-interface IUser {
-  nickname: string;
-  avatar: string;
-}
-
-export function useLogin() {
-  const [user, setUser] = useState<IUser>();
+export function useAuth() {
+  const { setUser } = useContext(UserContext);
   const [isUnauthorized, setIsUnauthorized] = useState(false);
   const navigate = useNavigate();
 
@@ -33,5 +29,12 @@ export function useLogin() {
     navigate("/");
   }
 
-  return { isUnauthorized, user, login };
+  async function logout() {
+    const confirm = window.confirm("Deseja realmente sair?");
+    if (!confirm) return;
+    setUser(null);
+    navigate("/");
+  }
+
+  return { isUnauthorized, login, logout };
 }

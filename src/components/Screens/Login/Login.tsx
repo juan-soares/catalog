@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import { useLogin } from "../../../contexts/useLogin";
+import { useAuth } from "../../../hooks/useAuth";
 
 interface ICredentials {
   email: string;
@@ -13,7 +13,7 @@ export function Login() {
     password: "",
   });
 
-  const { login, isUnauthorized } = useLogin();
+  const { login, isUnauthorized } = useAuth();
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
