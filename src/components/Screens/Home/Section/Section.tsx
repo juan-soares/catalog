@@ -1,25 +1,27 @@
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import getData from "../../../../utils/getData";
 
 interface IProps {
-  cover: string;
+  id: string;
   title: string;
-  release: string;
 }
 
-export function Section({ cover, title, release }: IProps) {
+export function Section({ id, title }: IProps) {
+  const [categoryListItem, setCategoryListItem] = useState<[] | null>([]);
+
+  useEffect(() => {
+    setCategoryListItem(null);
+    // getData(`/categories/${id}`, setCategoryListItem);
+  });
+
   return (
     <section>
-      <h1>Titulo</h1>
+      <h1>{title}</h1>
       <span>L</span>
       <ul>
-        <li>
-          <Link to="">
-            <img src={cover} />
-            <h2>
-              `${title} (${release.slice(0, 4)})`
-            </h2>
-          </Link>
-        </li>
+        <li>Carregando...</li>
+        <li>Sem itens na lista.</li>
       </ul>
       <span>R</span>
     </section>
