@@ -23,6 +23,7 @@ export function Login() {
         <div>
           <img src={user.avatar} alt="avatar" />
           <span>{user.nickname}</span>
+          <Link to="/admin">Gerenciar</Link>
           <button onClick={logout}>Sair</button>
         </div>
       )}

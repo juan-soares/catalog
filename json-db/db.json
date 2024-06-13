@@ -7,7 +7,7 @@
       "avatar": ""
     }
   ],
-  "categories": [{ "id": "aaa", "title": "animes" }],
+  "categories": [{ "id": "aaa", "title": "animes", "titleBR": "animes" }],
   "animes": [
     {
       "id": "aba",
