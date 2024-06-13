@@ -1,29 +1,47 @@
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Loader } from "../../../Loader";
+import { ListItem } from "./ListItem/ListItem";
+import { ICategoryItem } from "../../../../interfaces";
 import getData from "../../../../utils/getData";
 
 interface IProps {
-  id: string;
-  title: string;
+  categoryID: string;
+  categoryTitle: string;
 }
 
-export function Section({ id, title }: IProps) {
-  const [categoryListItem, setCategoryListItem] = useState<[] | null>([]);
+export function Section({ categoryTitle }: IProps) {
+  const [categoryItems, setCategoryItems] = useState<ICategoryItem[] | null>(
+    []
+  );
 
   useEffect(() => {
-    setCategoryListItem(null);
-    // getData(`/categories/${id}`, setCategoryListItem);
-  });
+    setCategoryItems(null), getData(categoryTitle, setCategoryItems);
+  }, []);
 
   return (
     <section>
-      <h1>{title}</h1>
-      <span>L</span>
+      <h1>{categoryTitle}</h1>
       <ul>
-        <li>Carregando...</li>
-        <li>Sem itens na lista.</li>
+        <span>L</span>
+
+        {!categoryItems ? (
+          <Loader />
+        ) : categoryItems.length === 0 ? (
+          <li>Sem itens na lista.</li>
+        ) : (
+          <>
+            {categoryItems.map((categoryItem) => (
+              <ListItem
+                key={categoryItem.id}
+                category={categoryTitle}
+                {...categoryItem}
+              />
+            ))}
+          </>
+        )}
+
+        <span>R</span>
       </ul>
-      <span>R</span>
     </section>
   );
 }

@@ -1,6 +1,7 @@
 import { useContext, useState } from "react";
 import { UserContext } from "../../contexts/user";
 import { useNavigate } from "react-router-dom";
+import { IUser } from "../../interfaces";
 
 interface ICredentials {
   email: string;
@@ -24,7 +25,13 @@ export function useAuth() {
       return;
     }
 
-    setUser({ nickname: data[0].nickname, avatar: data[0].avatar });
+    const userInfo: IUser = {
+      nickname: data[0].nickname,
+      avatar: data[0].avatar,
+    };
+
+    localStorage.setItem("user", JSON.stringify(userInfo));
+    setUser(userInfo);
 
     navigate("/");
   }
@@ -32,6 +39,7 @@ export function useAuth() {
   async function logout() {
     const confirm = window.confirm("Deseja realmente sair?");
     if (!confirm) return;
+    localStorage.removeItem("user");
     setUser(null);
     navigate("/");
   }

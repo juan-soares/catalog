@@ -1,11 +1,19 @@
 import { Link } from "react-router-dom";
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { UserContext } from "../../../contexts";
 import { useAuth } from "../../../hooks/useAuth";
 
 export function Login() {
-  const { user } = useContext(UserContext);
+  const { user, setUser } = useContext(UserContext);
   const { logout } = useAuth();
+
+  useEffect(() => {
+    const userInfo = localStorage.getItem("user");
+
+    if (!userInfo) return;
+
+    setUser(JSON.parse(userInfo));
+  }, []);
 
   return (
     <div>

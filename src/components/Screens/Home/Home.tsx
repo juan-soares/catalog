@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { Section } from "./Section";
 import getData from "../../../utils/getData";
+import { Loader } from "../../Loader";
 
 interface ICategory {
   id: string;
@@ -16,12 +17,20 @@ export function Home() {
   }, []);
 
   if (!categories) {
-    return <div>Carregando...</div>;
+    return <Loader />;
   } else if (!categories.length) {
-    return <div>Sem itens na lista.</div>;
+    return (
+      <div>
+        <p>Sem itens na lista.</p>
+      </div>
+    );
   } else {
-    categories.map(({ id, title }) => (
-      <Section key={id} id={id} title={title} />
-    ));
+    return (
+      <div>
+        {categories.map(({ id, title }) => (
+          <Section key={id} categoryID={id} categoryTitle={title} />
+        ))}
+      </div>
+    );
   }
 }
