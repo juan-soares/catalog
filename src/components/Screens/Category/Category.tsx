@@ -1,9 +1,14 @@
 import { useEffect, useState } from "react";
-import { ICategory } from "../../../interfaces";
 import { useNavigate } from "react-router-dom";
+import { ICategory } from "../../../interfaces";
+import { Loader } from "../../Loader";
+import { Filters } from "./Filters";
+import { List } from "./List";
 
 export function Category() {
-  const [selectedCategory, setSelectedCategory] = useState<ICategory>();
+  const [selectedCategory, setSelectedCategory] = useState<ICategory | null>(
+    null
+  );
   const redirect = useNavigate();
 
   useEffect(() => {
@@ -12,9 +17,15 @@ export function Category() {
     setSelectedCategory(JSON.parse(localStorageValue));
   }, []);
 
-  return (
-    <div>
-      <h1>{selectedCategory?.titleBR}</h1>
-    </div>
-  );
+  if (!selectedCategory) {
+    return <Loader />;
+  } else {
+    return (
+      <div>
+        <h1>{selectedCategory?.titleBR}</h1>
+        <Filters />
+        <List category={selectedCategory.title} />
+      </div>
+    );
+  }
 }
