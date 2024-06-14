@@ -1,21 +1,24 @@
-import { useEffect } from "react";
-import getData from "../../../utils/getData";
 import { useParams } from "react-router-dom";
+import { Anime } from "./Anime";
+import { Loader } from "../../Loader";
 
 export function CategoryItem() {
-  const categoryStorage =
-    localStorage.getItem("selectedCategory") || "Carregando...";
-  const { title } = JSON.parse(categoryStorage);
+  const categoryStorage = localStorage.getItem("selectedCategory");
 
-  const { id } = useParams();
+  if (!categoryStorage) {
+    return <Loader />;
+  } else {
+    const { title } = JSON.parse(categoryStorage);
+    const { id } = useParams();
 
-  switch (title) {
-    case "animes":
-      return <p>{id}</p>;
+    switch (title) {
+      case "animes":
+        return <Anime category={title} title={id || ""} />;
 
-      break;
+        break;
 
-    default:
-      break;
+      default:
+        break;
+    }
   }
 }
