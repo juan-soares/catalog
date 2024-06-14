@@ -17,13 +17,14 @@ export function Login() {
 
   return (
     <div>
-      <Link to="/login">Login</Link>
-
-      {user && (
+      {!user ? (
+        <Link to="/login">Login</Link>
+      ) : (
         <div>
-          <img src={user.avatar} alt="avatar" />
-          <span>{user.nickname}</span>
-          <Link to="/admin">Gerenciar</Link>
+          <Link to="/admin">
+            <img src={user.avatar} alt="avatar" />
+            <span>{user.nickname}</span>
+          </Link>
           <button onClick={logout}>Sair</button>
         </div>
       )}
