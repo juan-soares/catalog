@@ -27,8 +27,8 @@ export function List({ category }: IProps) {
   } else {
     return (
       <ul>
-        {listItems.map(({ title, cover, release }) => (
-          <Link to={title}>
+        {listItems.map(({ id, title, cover, release }) => (
+          <Link key={id} to={id}>
             <img src={cover} alt={`Capa de ${title}.`} />
             <h2>{`${title} (${release.slice(0, 4)})`}</h2>
           </Link>

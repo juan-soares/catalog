@@ -2,6 +2,7 @@ import { createBrowserRouter } from "react-router-dom";
 import {
   ScreenAdmin,
   ScreenCategory,
+  ScreenCategoryItem,
   ScreenDefault,
   ScreenError,
   ScreenHome,
@@ -18,6 +19,7 @@ const routes = createBrowserRouter([
       { path: "/login", element: <ScreenLogin /> },
       { path: "/admin", element: <ScreenAdmin /> },
       { path: "/:category", element: <ScreenCategory /> },
+      { path: "/:category/:id", element: <ScreenCategoryItem /> },
     ],
   },
 ]);
