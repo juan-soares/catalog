@@ -1,20 +1,12 @@
 {
-  "users": [
-    {
-      "email": "a@a",
-      "password": "123",
-      "nickname": "adm",
-      "avatar": ""
-    }
-  ],
-  "categories": [{ "id": "aaa", "title": "animes", "titleBR": "animes" }],
   "animes": [
     {
-      "id": "aba",
-      "title": "nar",
-      "titleTranslated": "nar",
-      "cover": "src",
-      "release": "2024-05-01"
+      "id": "abc",
+      "cover": "www.google.com",
+      "title": "Naruto",
+      "release": "2024-01-01",
+      "category": "animes",
+      "url": "naruto"
     }
   ]
 }
