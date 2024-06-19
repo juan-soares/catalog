@@ -43,7 +43,7 @@ export function ResultList({ searchedValue }: IProps) {
               <li key={id}>
                 <Link to={`/${category}/${url}`}>
                   <img src={cover} alt={`Capa de ${title}.`} />
-                  <span>{`${title} (${release.slice(0, 4)})`}</span>
+                  <span>{`${title} (${release.slice(0, 4)}) [${category}]`}</span>
                 </Link>
               </li>
             )

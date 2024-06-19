@@ -1,4 +1,12 @@
 {
+  "users": [
+    {
+      "id": "asasa",
+      "nickname": "admin",
+      "email": "a@a",
+      "password": "123"
+    }
+  ],
   "animes": [
     {
       "id": "abc",
