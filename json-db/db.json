@@ -7,13 +7,37 @@
       "password": "123"
     }
   ],
+  "categories": [
+    {
+      "id": "aaaaaa",
+      "url": "animes",
+      "titleBR": "animes"
+    },
+    {
+      "id": "aaaaaa",
+      "url": "video-games",
+      "titleBR": "jogos eletrônicos"
+    }
+  ],
   "animes": [
     {
       "id": "abc",
       "cover": "www.google.com",
       "title": "Naruto",
+      "translatedTitle": "Naruto",
       "release": "2024-01-01",
       "category": "animes",
+      "url": "naruto"
+    }
+  ],
+  "video-games": [
+    {
+      "id": "abcd",
+      "cover": "www.google.com",
+      "title": "Naruto 2",
+      "translatedTitle": "Naruto 2",
+      "release": "2024-01-01",
+      "category": "video-games",
       "url": "naruto"
     }
   ]

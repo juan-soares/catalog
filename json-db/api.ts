@@ -7,10 +7,6 @@ interface IUserAPI {
   nickname: string;
 }
 
-interface ICategoryAPI {
-  url: string;
-}
-
 export async function getUser({ email, password }: ICredentials) {
   const res = await fetch(
     "https://catalog-1kpk--3001--802dc1bc.local-credentialless.webcontainer.io/users"
@@ -30,18 +26,28 @@ export async function getUser({ email, password }: ICredentials) {
 
 export async function getSearch(searchedValue: string) {
   const res = await fetch(
-    "https://catalog-1kpk--5173--802dc1bc.local-credentialless.webcontainer.io/categories"
+    "https://catalog-1kpk--3001--802dc1bc.local-credentialless.webcontainer.io/categories"
   );
 
   const categories = await res.json();
 
-  let results = [];
+  let allResults = [];
 
-  categories.map(({ url }: ICategoryAPI) => {
+  for (const category of categories) {
     const res = await fetch(
-      `https://catalog-1kpk--5173--802dc1bc.local-credentialless.webcontainer.io/${url}`
+      `https://catalog-1kpk--3001--802dc1bc.local-credentialless.webcontainer.io/${category.url}`
     );
 
-    const categories = await res.json();
-  });
+    const data = await res.json();
+
+    allResults.push(...data);
+  }
+
+  const results = allResults.filter(
+    (r) =>
+      r.title.includes(searchedValue) ||
+      r.translatedTitle.includes(searchedValue)
+  );
+
+  return results;
 }
