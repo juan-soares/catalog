@@ -35,7 +35,7 @@ export async function getSearch(searchedValue: string) {
 
   for (const category of categories) {
     const res = await fetch(
-      `https://catalog-1kpk--3001--802dc1bc.local-credentialless.webcontainer.io/${category.url}`
+      `https://catalog-1kpk--3001--802dc1bc.local-credentialless.webcontainer.io/${category.collection}`
     );
 
     const data = await res.json();

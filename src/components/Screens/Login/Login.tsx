@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { ICredentials } from "../../../interfaces";
 import { useAuth } from "../../../hooks";
-import { useNavigate } from "react-router-dom";
+import { Navigate, useNavigate } from "react-router-dom";
 
 export function ScreenLogin() {
   const [credentials, setCredentials] = useState<ICredentials>({
@@ -21,7 +21,7 @@ export function ScreenLogin() {
   };
 
   if (user) {
-    return redirect("/");
+    return <Navigate to="/" />;
   } else {
     return (
       <div>
