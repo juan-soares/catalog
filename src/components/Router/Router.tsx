@@ -4,6 +4,7 @@ import {
   ScreenLogin,
   ScreenError,
   ScreenHome,
+  ScreenCategory,
 } from "../Screens";
 
 export function Router() {
@@ -15,6 +16,7 @@ export function Router() {
       children: [
         { path: "/", element: <ScreenHome /> },
         { path: "/login", element: <ScreenLogin /> },
+        { path: "/:category", element: <ScreenCategory /> },
       ],
     },
   ]);
