@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { Searchbar } from "./Searchbar";
 import { Loginbar } from "./Loginbar/Login";
+import { Navbar } from "./Navbar";
 
 export function Header() {
   return (
@@ -10,6 +11,7 @@ export function Header() {
       </Link>
       <Searchbar />
       <Loginbar />
+      <Navbar />
     </header>
   );
 }

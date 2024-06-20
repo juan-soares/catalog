@@ -7,7 +7,7 @@ interface IUserContext {
 }
 
 interface IProps {
-  children: JSX.Element[];
+  children: JSX.Element;
 }
 
 export const UserContext = createContext<IUserContext>({

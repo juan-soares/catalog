@@ -9,14 +9,16 @@
   ],
   "categories": [
     {
-      "id": "aaaaaa",
+      "id": "aaaa",
       "url": "animes",
-      "titleBR": "animes"
+      "titleBR": "Animes",
+      "collection": "animes"
     },
     {
       "id": "aaaaaa",
       "url": "video-games",
-      "titleBR": "jogos eletrônicos"
+      "titleBR": "Jogos Eletrônicos",
+      "collection": "videoGames"
     }
   ],
   "animes": [

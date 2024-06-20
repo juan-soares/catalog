@@ -1,5 +1,10 @@
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
-import { ScreenDefault, ScreenLogin, ScreenError } from "../Screens";
+import {
+  ScreenDefault,
+  ScreenLogin,
+  ScreenError,
+  ScreenHome,
+} from "../Screens";
 
 export function Router() {
   const routes = createBrowserRouter([
@@ -8,10 +13,8 @@ export function Router() {
       element: <ScreenDefault />,
       errorElement: <ScreenError />,
       children: [
-        {
-          path: "/login",
-          element: <ScreenLogin />,
-        },
+        { path: "/", element: <ScreenHome /> },
+        { path: "/login", element: <ScreenLogin /> },
       ],
     },
   ]);
