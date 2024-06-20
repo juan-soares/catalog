@@ -25,7 +25,7 @@ export function ResultList({ searchedValue }: IProps) {
     };
 
     getData();
-  }, [searchedValue]);
+  }, []);
 
   return (
     <ul>

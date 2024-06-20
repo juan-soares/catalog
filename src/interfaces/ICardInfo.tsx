@@ -1,4 +1,4 @@
-export interface ICategoryItem {
+export interface ICardInfo {
   id: string;
   url: string;
   cover: string;

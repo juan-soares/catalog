@@ -1,28 +1,49 @@
 import { useEffect, useState } from "react";
-import { ICategory } from "../../../interfaces";
+import { useParams } from "react-router-dom";
+import { ICardInfo, ICategory } from "../../../interfaces";
 import { CardsList } from "./CardsList";
 
 export function ScreenCategory() {
-  const [selectedCategory, setSelectedCategory] = useState<ICategory>({
-    collection: "",
-    id: "",
-    titleBR: "",
-    url: "",
-  });
+  const { categoryURL } = useParams();
+  const [category, setCategory] = useState<null | ICategory>(null);
+  const [cardsInfo, setCardsInfo] = useState<ICardInfo[]>([]);
 
   useEffect(() => {
-    const storagedData = localStorage.getItem("selectedCategory");
-    if (storagedData) {
-      setSelectedCategory(JSON.parse(storagedData));
-    }
-  }, [selectedCategory]);
+    const getData = async () => {
+      const res = await fetch(
+        `https://catalog-1kpk--3001--802dc1bc.local-credentialless.webcontainer.io/categories?url=${categoryURL}`
+      );
 
-  const { titleBR, url, collection } = selectedCategory;
+      const data = await res.json();
 
-  return (
-    <div>
-      <h1>{titleBR}</h1>
-      <CardsList url={url} collection={collection} />
-    </div>
-  );
+      setCategory(data[0]);
+
+      const resList = await fetch(
+        `https://catalog-1kpk--3001--802dc1bc.local-credentialless.webcontainer.io/${data[0].collection}`
+      );
+
+      const dataList = await resList.json();
+
+      setCardsInfo(dataList);
+    };
+
+    getData();
+  }, [categoryURL]);
+
+  if (!category) {
+    return (
+      <div>
+        <p>Carregando...</p>
+      </div>
+    );
+  } else {
+    const { titleBR } = category;
+
+    return (
+      <div>
+        <h1>{titleBR}</h1>
+        <CardsList cardsInfo={cardsInfo} />
+      </div>
+    );
+  }
 }

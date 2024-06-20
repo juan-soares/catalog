@@ -16,7 +16,7 @@ export function Router() {
       children: [
         { path: "/", element: <ScreenHome /> },
         { path: "/login", element: <ScreenLogin /> },
-        { path: "/:category", element: <ScreenCategory /> },
+        { path: "/:categoryURL", element: <ScreenCategory /> },
       ],
     },
   ]);
