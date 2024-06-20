@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { ICardInfo, ICategory } from "../../../interfaces";
 import { CardsList } from "./CardsList";
+import { Filters } from "./Filters";
 
 export function ScreenCategory() {
   const { categoryURL } = useParams();
@@ -37,11 +38,12 @@ export function ScreenCategory() {
       </div>
     );
   } else {
-    const { titleBR } = category;
+    const { id, titleBR } = category;
 
     return (
       <div>
         <h1>{titleBR}</h1>
+        <Filters categoryID={id} />
         <CardsList cardsInfo={cardsInfo} />
       </div>
     );
