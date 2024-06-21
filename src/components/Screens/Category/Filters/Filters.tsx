@@ -1,4 +1,4 @@
-import { ValuesList } from "./Values";
+import { ValuesList } from "./ValuesList";
 
 interface IProps {
   filters: [{ id: string; filter: string }];
