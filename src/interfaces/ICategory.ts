@@ -3,4 +3,9 @@ export interface ICategory {
   url: string;
   titleBR: string;
   collection: string;
+  filters: [{
+    id:string;
+    filter:string;
+  }
+]
 }

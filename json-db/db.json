@@ -7,18 +7,34 @@
       "password": "123"
     }
   ],
+  "values": [{ "id": "a", "value": "PT-BR", "filter": "a" }],
   "categories": [
     {
       "id": "aaaa",
       "url": "animes",
       "titleBR": "Animes",
-      "collection": "animes"
+      "collection": "animes",
+      "filters": [
+        {
+          "id": "a",
+          "filter": "idiomas"
+        },
+        {
+          "id": "aa",
+          "filter": "qualidades"
+        },
+        {
+          "id": "aaa",
+          "filter": "temáticas"
+        }
+      ]
     },
     {
       "id": "aaaaaa",
       "url": "video-games",
       "titleBR": "Jogos Eletrônicos",
-      "collection": "videoGames"
+      "collection": "videoGames",
+      "filters": []
     }
   ],
   "animes": [
