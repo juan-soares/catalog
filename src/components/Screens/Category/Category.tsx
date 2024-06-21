@@ -8,7 +8,7 @@ export function ScreenCategory() {
   const { categoryURL } = useParams();
   const [category, setCategory] = useState<null | ICategory>(null);
   const [cardsInfo, setCardsInfo] = useState<ICardInfo[]>([]);
-
+  
   useEffect(() => {
     const getData = async () => {
       const res = await fetch(
@@ -39,6 +39,7 @@ export function ScreenCategory() {
     );
   } else {
     const { titleBR, filters } = category;
+
 
     return (
       <div>

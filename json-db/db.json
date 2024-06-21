@@ -17,15 +17,18 @@
       "filters": [
         {
           "id": "a",
-          "filter": "idiomas"
+          "label": "idiomas",
+          "field": "language"
         },
         {
           "id": "aa",
-          "filter": "qualidades"
+          "label": "qualidades",
+          "field": "resolution"
         },
         {
           "id": "aaa",
-          "filter": "temáticas"
+          "label": "temáticas",
+          "field": "themes"
         }
       ]
     },
