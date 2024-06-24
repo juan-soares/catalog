@@ -7,17 +7,36 @@ interface IProps {
   filterID: string;
 }
 
-interface IValuesToFilter {
+interface IFilter {
   [key: string]: string;
 }
 
 export function ValuesList({ fieldName, filterID }: IProps) {
   const [values, setValues] = useState<IValue[]>([]);
-  const [valuesToFilter, setValuesToFilter] = useState<IValuesToFilter[]>([]);
+  const [filtersList, setFiltersList] = useState<IFilter[]>([]);
 
   useEffect(() => {
     getData(`values?filter=${filterID}`, setValues);
   }, []);
+
+  const handleChange = (inputName: string, inputValue: string) => {
+    const itExists = filtersList.findIndex(
+      (filter) => filter[inputName] === inputValue
+    );
+
+    if (itExists === -1) {
+      setFiltersList((prevState) => [
+        ...prevState,
+        { [inputName]: inputValue },
+      ]);
+    } else {
+      setFiltersList((prevState) =>
+        prevState.filter((filter) => filter[inputName] !== inputValue)
+      );
+    }
+
+    console.log(filtersList);
+  };
 
   return (
     <ul>
@@ -28,9 +47,9 @@ export function ValuesList({ fieldName, filterID }: IProps) {
             id={id}
             name={fieldName}
             value={id}
-            onChange={({ target: { name, value } }) => {
-              console.log(name);
-            }}
+            onChange={({ target: { name, value } }) =>
+              handleChange(name, value)
+            }
           />
           <label htmlFor={id}>{value}</label>
         </li>
