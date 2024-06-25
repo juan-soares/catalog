@@ -2,40 +2,42 @@ import { useEffect, useState } from "react";
 import { getData } from "../../../../../utils";
 import { IValue } from "../../../../../interfaces";
 
+interface IValuesToFilter {
+  [key: string]: string[];
+}
+
 interface IProps {
+  valuesToFilter: IValuesToFilter;
+  setValuesToFilter: React.Dispatch<React.SetStateAction<IValuesToFilter>>;
   fieldName: string;
   filterID: string;
 }
 
-interface IFilter {
-  [key: string]: string;
-}
-
-export function ValuesList({ fieldName, filterID }: IProps) {
+export function ValuesList({
+  valuesToFilter,
+  setValuesToFilter,
+  fieldName,
+  filterID,
+}: IProps) {
   const [values, setValues] = useState<IValue[]>([]);
-  const [filtersList, setFiltersList] = useState<IFilter[]>([]);
 
   useEffect(() => {
     getData(`values?filter=${filterID}`, setValues);
   }, []);
 
-  const handleChange = (inputName: string, inputValue: string) => {
-    const itExists = filtersList.findIndex(
-      (filter) => filter[inputName] === inputValue
-    );
+  const handleChange = (
+    inputIsChecked: boolean,
+    inputName: string,
+    inputValue: string
+  ) => {
+    setValuesToFilter((prevState) => ({
+      ...prevState,
+      [inputName]: !inputIsChecked
+        ? [...prevState[inputName], inputValue]
+        : prevState[inputName].filter((filter) => filter !== inputValue),
+    }));
 
-    if (itExists === -1) {
-      setFiltersList((prevState) => [
-        ...prevState,
-        { [inputName]: inputValue },
-      ]);
-    } else {
-      setFiltersList((prevState) =>
-        prevState.filter((filter) => filter[inputName] !== inputValue)
-      );
-    }
-
-    console.log(filtersList);
+    console.log(valuesToFilter);
   };
 
   return (
@@ -47,8 +49,8 @@ export function ValuesList({ fieldName, filterID }: IProps) {
             id={id}
             name={fieldName}
             value={id}
-            onChange={({ target: { name, value } }) =>
-              handleChange(name, value)
+            onChange={({ target: { name, value, checked } }) =>
+              handleChange(checked, name, value)
             }
           />
           <label htmlFor={id}>{value}</label>
