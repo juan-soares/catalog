@@ -7,6 +7,7 @@ export async function getData(
     | React.Dispatch<React.SetStateAction<ICardInfo[] | null>>
     | React.Dispatch<React.SetStateAction<[] | null>>
     | React.Dispatch<React.SetStateAction<IValue[]>>
+    | React.Dispatch<React.SetStateAction<ICardInfo[]>>
 ) {
   const res = await fetch(
     `https://catalog-1kpk--3001--802dc1bc.local-credentialless.webcontainer.io/${url}`

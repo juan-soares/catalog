@@ -8,11 +8,11 @@ export function Navbar() {
   return (
     <nav>
       {categories.map((category) => {
-        const { id, url, titleBR } = category;
+        const { id, url, title } = category;
 
         return (
           <Link key={id} to={`/${url}`}>
-            {titleBR}
+            {title}
           </Link>
         );
       })}

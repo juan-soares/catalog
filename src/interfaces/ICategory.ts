@@ -3,8 +3,7 @@ import { IFilter } from "./IFilter";
 export interface ICategory {
   id: string;
   url: string;
-  titleBR: string;
+  title: string;
   collection: string;
-  filters: IFilter[]
-
+  filters: IFilter[];
 }

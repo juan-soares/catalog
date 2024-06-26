@@ -1,19 +1,25 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { ICategory } from "../../../interfaces";
+import { ICardInfo, ICategory } from "../../../interfaces";
+import { Filters } from "./Filters";
+import { List } from "./List";
+import { getData } from "../../../utils";
 
 export function ScreenCategory() {
   const { categoryURL } = useParams();
   const [categoryObject, setCategoryObject] = useState<ICategory | null>(null);
+  const [cardsList, setCardsList] = useState<ICardInfo[]>([]);
 
   const getCategoryObject = async (categoryURL: string) => {
     const res = await fetch(
       `https://catalog-1kpk--3001--dc4d7514.local-credentialless.webcontainer.io/categories?url=${categoryURL}`
     );
 
-    const data = await res.json();
+    const categoryObjectdata = await res.json();
 
-    setCategoryObject(data[0]);
+    setCategoryObject(categoryObjectdata[0]);
+
+    await getData(categoryObjectdata[0].url, setCardsList);
   };
 
   useEffect(() => {
@@ -23,11 +29,13 @@ export function ScreenCategory() {
   if (!categoryObject) {
     return <div>Carregando...</div>;
   } else {
-    const { titleBR } = categoryObject;
+    const { title, filters } = categoryObject;
 
     return (
       <div>
-        <h1>{titleBR}</h1>
+        <h1>{title}</h1>
+        <Filters filters={filters} />
+        <List cardsList={cardsList} />
       </div>
     );
   }

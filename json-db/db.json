@@ -7,59 +7,35 @@
       "password": "123"
     }
   ],
-  "values": [{ "id": "a", "value": "PT-BR", "filter": "a" }],
   "categories": [
     {
-      "id": "aaaa",
+      "id": "1",
       "url": "animes",
-      "titleBR": "Animes",
+      "title": "Animes",
       "collection": "animes",
       "filters": [
         {
-          "id": "a",
-          "label": "idiomas",
-          "field": "language"
-        },
-        {
-          "id": "aa",
-          "label": "qualidades",
-          "field": "resolution"
-        },
-        {
-          "id": "aaa",
-          "label": "temáticas",
-          "field": "themes"
+          "id": "1",
+          "label": "Idiomas",
+          "field": "language",
+          "values": [
+            {
+              "id": "1",
+              "value": "PT-BR"
+            }
+          ]
         }
       ]
-    },
-    {
-      "id": "aaaaaa",
-      "url": "video-games",
-      "titleBR": "Jogos Eletrônicos",
-      "collection": "videoGames",
-      "filters": []
     }
   ],
   "animes": [
     {
-      "id": "abc",
-      "cover": "www.google.com",
+      "id": "1",
       "title": "Naruto",
-      "translatedTitle": "Naruto",
-      "release": "2024-01-01",
-      "category": "animes",
-      "url": "naruto"
-    }
-  ],
-  "videoGames": [
-    {
-      "id": "abcd",
-      "cover": "www.google.com",
-      "title": "Naruto 2",
-      "translatedTitle": "Naruto 2",
-      "release": "2024-01-01",
-      "category": "video-games",
-      "url": "naruto"
+      "titleTranslated": "Naurto",
+      "url": "naruto",
+      "cover": "/",
+      "release": "2023-01-01"
     }
   ]
 }
