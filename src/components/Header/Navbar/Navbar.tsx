@@ -7,9 +7,7 @@ export function Navbar() {
 
   return (
     <nav>
-      {categories.map((category) => {
-        const { id, url, title } = category;
-
+      {categories.map(({ id, url, title }) => {
         return (
           <Link key={id} to={`/${url}`}>
             {title}

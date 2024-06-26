@@ -1,9 +1,10 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { ICardInfo, ICategory } from "../../../interfaces";
+
 import { Filters } from "./Filters";
 import { List } from "./List";
 import { getData } from "../../../utils";
+import { ICardInfo, ICategory } from "../../../interfaces";
 
 export function ScreenCategory() {
   const { categoryURL } = useParams();
@@ -29,12 +30,12 @@ export function ScreenCategory() {
   if (!categoryObject) {
     return <div>Carregando...</div>;
   } else {
-    const { title, filters } = categoryObject;
+    const { title } = categoryObject;
 
     return (
       <div>
         <h1>{title}</h1>
-        <Filters filters={filters} />
+        <Filters />
         <List cardsList={cardsList} />
       </div>
     );
