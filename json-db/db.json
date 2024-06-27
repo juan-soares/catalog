@@ -22,6 +22,25 @@
             {
               "id": "1",
               "value": "PT-BR"
+            },
+            {
+              "id": "2",
+              "value": "EN"
+            }
+          ]
+        },
+        {
+          "id": "2",
+          "label": "Resoluções",
+          "field": "resolution",
+          "values": [
+            {
+              "id": "1",
+              "value": "1080p"
+            },
+            {
+              "id": "2",
+              "value": "760p"
             }
           ]
         }

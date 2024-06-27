@@ -5,3 +5,4 @@ export * from "./IFilter";
 export * from "./IProps";
 export * from "./IUser";
 export * from "./IValue";
+export * from "./IValuesToFilter";

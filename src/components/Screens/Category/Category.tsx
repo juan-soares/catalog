@@ -3,6 +3,7 @@ import { Link, useParams } from "react-router-dom";
 import { ICardInfo, ICategory } from "../../../interfaces";
 import { getData } from "../../../utils";
 import { List } from "./List";
+import { Filters } from "./Filters";
 
 export function ScreenCategory() {
   const { categoryURL } = useParams();
@@ -17,6 +18,8 @@ export function ScreenCategory() {
     );
 
     const data: ICategory[] = await res.json();
+
+    if (!data.length) return;
 
     setCategoryInfo(data[0]);
 
@@ -34,9 +37,12 @@ export function ScreenCategory() {
       </div>
     );
   } else {
+    const { title, filters } = categoryInfo;
+
     return (
       <div>
-        <h1>{categoryInfo.title}</h1>
+        <h1>{title}</h1>
+        <Filters filtersList={filters} />
         <List cardsInfo={cardsInfo} />
       </div>
     );
