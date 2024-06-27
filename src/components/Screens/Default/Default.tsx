@@ -1,7 +1,7 @@
 import { Outlet } from "react-router-dom";
 import {
-  UserContextProvider,
   CategoriesContextProvider,
+  UserContextProvider,
 } from "../../../contexts";
 import { Header } from "../../Header";
 import { Footer } from "../../Footer";

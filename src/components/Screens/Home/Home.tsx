@@ -3,12 +3,12 @@ import { CategoriesContext } from "../../../contexts";
 import { Section } from "./Section";
 
 export function ScreenHome() {
-  const { categories } = useContext(CategoriesContext);
+  const categoriesWithData = useContext(CategoriesContext);
 
   return (
     <main>
-      {categories.map((category) => (
-        <Section key={category.id} {...category} />
+      {categoriesWithData.map(({ category: { id, title }, cardsInfo }) => (
+        <Section key={id} title={title} cardsInfo={cardsInfo} />
       ))}
     </main>
   );

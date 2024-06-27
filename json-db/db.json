@@ -35,7 +35,26 @@
       "titleTranslated": "Naurto",
       "url": "naruto",
       "cover": "/",
-      "release": "2023-01-01"
+      "release": "2023-01-01",
+      "category": {
+        "id": "1",
+        "url": "animes",
+        "title": "Animes",
+        "collection": "animes",
+        "filters": [
+          {
+            "id": "1",
+            "label": "Idiomas",
+            "field": "language",
+            "values": [
+              {
+                "id": "1",
+                "value": "PT-BR"
+              }
+            ]
+          }
+        ]
+      }
     }
   ]
 }
