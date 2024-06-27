@@ -11,7 +11,7 @@ export function ValuesList({ field, valuesList, setValuesToFilter }: IProps) {
     setValuesToFilter((prevState) => ({
       ...prevState,
       [field]: isChecked
-        ? [...(prevState[field] || []), inputValue]
+        ? [...prevState[field], inputValue]
         : prevState[field].filter((filterValue) => filterValue !== inputValue),
     }));
   };

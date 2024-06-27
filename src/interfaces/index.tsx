@@ -1,3 +1,4 @@
+export * from "./IAnime";
 export * from "./ICardInfo";
 export * from "./ICategory";
 export * from "./ICredentials";

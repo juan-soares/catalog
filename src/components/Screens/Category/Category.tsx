@@ -37,12 +37,16 @@ export function ScreenCategory() {
       </div>
     );
   } else {
-    const { title, filters } = categoryInfo;
+    const { title, collection, filters } = categoryInfo;
 
     return (
       <div>
         <h1>{title}</h1>
-        <Filters filtersList={filters} />
+        <Filters
+          collection={collection}
+          filtersList={filters}
+          setCardsInfo={setCardsInfo}
+        />
         <List cardsInfo={cardsInfo} />
       </div>
     );

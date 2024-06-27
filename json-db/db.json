@@ -55,6 +55,8 @@
       "url": "naruto",
       "cover": "/",
       "release": "2023-01-01",
+      "language": "1",
+      "resolution": "1",
       "category": {
         "id": "1",
         "url": "animes",
