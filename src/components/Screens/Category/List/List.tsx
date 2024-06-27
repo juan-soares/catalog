@@ -2,16 +2,16 @@ import { Link } from "react-router-dom";
 import { ICardInfo } from "../../../../interfaces";
 
 interface IProps {
-  cardsList: ICardInfo[];
+  cardsInfo: ICardInfo[];
 }
 
-export function List({ cardsList }: IProps) {
+export function List({ cardsInfo }: IProps) {
   return (
     <ul>
-      {!cardsList.length ? (
+      {!cardsInfo.length ? (
         <li>Sem itens na lista.</li>
       ) : (
-        cardsList.map(
+        cardsInfo.map(
           ({
             id,
             url,

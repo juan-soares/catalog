@@ -1,16 +1,23 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { ICardInfo } from "../../../../interfaces";
+import { getData } from "../../../../utils";
 
 interface IProps {
-  title: string;
-  cardsInfo: ICardInfo[];
+  categoryTitle: string;
+  categoryCollection: string;
 }
 
-export function Section({ title, cardsInfo }: IProps) {
+export function Section({ categoryTitle, categoryCollection }: IProps) {
+  const [cardsInfo, setCardsInfo] = useState<ICardInfo[]>([]);
+
+  useEffect(() => {
+    getData(categoryCollection, setCardsInfo);
+  }, []);
+
   return (
     <section>
-      <h1>{title}</h1>
+      <h1>{categoryTitle}</h1>
       <span>L</span>
       <ul>
         {cardsInfo.map(
