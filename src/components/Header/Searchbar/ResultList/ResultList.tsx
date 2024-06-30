@@ -1,22 +1,15 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { getSearch } from "../../../../../json-db/api";
+import { ICardInfo } from "../../../../interfaces";
 
 interface IProps {
   searchedValue: string;
 }
 
-interface ITitle {
-  id: string;
-  cover: string;
-  title: string;
-  release: string;
-  category: string;
-  url: string;
-}
 
 export function ResultList({ searchedValue }: IProps) {
-  const [results, setResults] = useState<null | ITitle[]>(null);
+  const [results, setResults] = useState<null | ICardInfo[]>(null);
 
   useEffect(() => {
     const getData = async () => {
@@ -36,14 +29,14 @@ export function ResultList({ searchedValue }: IProps) {
       ) : (
         <>
           {results.map(
-            ({ id, category, url, cover, title, release }: ITitle) => (
+            ({ id, category:{url: categoryURL, title: categoryTitle}, url, cover, title, release }) => (
               <li key={id}>
-                <Link to={`/${category}/${url}`}>
+                <Link to={`/${categoryURL}/${url}`}>
                   <img src={cover} alt={`Capa de ${title}.`} />
                   <span>{`${title} (${release.slice(
                     0,
                     4
-                  )}) [${category}]`}</span>
+                  )}) [${categoryTitle}]`}</span>
                 </Link>
               </li>
             )

@@ -1,3 +1,6 @@
 export function Footer() {
-  return <footer>{new Date().getFullYear()}</footer>;
+  return <footer>
+    <p>@ @ @</p>
+    <p>JC &#169; {new Date().getFullYear()} </p>
+    </footer>;
 }
